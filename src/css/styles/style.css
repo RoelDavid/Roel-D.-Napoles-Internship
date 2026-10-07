@@ -16687,6 +16687,11 @@ img {
   }
 }
 
+.skeleton-image {
+  width: 100%;
+  height: 250px;
+}
+
 .nft-image {
   height: 100%;
   width: 100%;
