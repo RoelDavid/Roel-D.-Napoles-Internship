@@ -47,7 +47,7 @@ const ExploreItems = () => {
       <div>
         <select id="filter-items" defaultValue="" onChange={sortExploreItems}>
           <option value="">Default</option>
-          <option value="price_low_to_high" >Price, Low to High</option>
+          <option value="price_low_to_high">Price, Low to High</option>
           <option value="price_high_to_low">Price, High to Low</option>
           <option value="likes_high_to_low">Most liked</option>
         </select>
@@ -72,7 +72,7 @@ const ExploreItems = () => {
             <div className="nft__item">
               <div className="author_list_pp">
                 <Link
-                  to="/author"
+                  to={`/author/${item.authorId}`}
                   data-bs-toggle="tooltip"
                   data-bs-placement="top"
                 >
