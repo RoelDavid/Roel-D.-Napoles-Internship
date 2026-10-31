@@ -3,46 +3,22 @@ import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
+import useCountdown from "../timer/timer.jsx";
 
 const NewItems = () => {
   const [newItems, setNewItems] = useState([]);
-  const [countdowns, setCountdowns] = useState({});
+  const countdowns = useCountdown(newItems);
 
   useEffect(() => {
-    let interval;
-
-    async function fetchNewItems() {
+    async function fetchNewItems (){
       const newItemsData = await axios.get(
         "https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems",
       );
       setNewItems(newItemsData.data);
-
-      function updateCountdown(item) {
-        if (item.expiryDate === null) return;
-        const timeRemaining = Math.max(0, item.expiryDate - Date.now());
-
-        const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
-        const seconds = Math.floor((timeRemaining / 1000) % 60);
-        setCountdowns((prevCountdowns) => ({
-          ...prevCountdowns,
-          [item.id]: `${hours}h ${minutes}m ${seconds}s`,
-        }));
-      }
-
-      function updateAllCountdowns() {
-        newItemsData.data.forEach((item) => {
-          updateCountdown(item);
-        });
-      }
-
-      updateAllCountdowns();
-      interval = setInterval(updateAllCountdowns, 1000);
     }
     fetchNewItems();
-    return () => clearInterval(interval);
-  }, []);
-
+    }, [])
+  
   return (
     <section id="section-items" className="no-bottom">
       <div className="container">
