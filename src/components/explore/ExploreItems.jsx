@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import useCountdown from "../../timer/timer.jsx";
+import useCountdown from "../timer/timer.jsx";
+import Skeleton from "../UI/Skeleton.jsx";
 
 const ExploreItems = () => {
   const [exploreData, setExploreData] = useState([]);
@@ -57,7 +58,7 @@ const ExploreItems = () => {
           {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
             <div key={item} className="col-lg-3 col-md-6 col-sm-6 col-12">
               <div className="nft_coll">
-                <div className="skeleton-box skeleton-image"></div>
+                <Skeleton width="100%" height="250px" borderRadius="8px" />
               </div>
             </div>
           ))}

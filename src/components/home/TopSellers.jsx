@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Skeleton from "../UI/Skeleton.jsx";
 
 const TopSellers = () => {
   const [topSellers, setTopSellers] = useState([]);
@@ -35,12 +36,24 @@ const TopSellers = () => {
                 ? Array.from({ length: 12 }).map((_, index) => (
                     <li key={index}>
                       <div className="author_list_pp">
-                        <div className="skeleton-box skeleton-seller-image"></div>
+                        <Skeleton
+                          width="50px"
+                          height="50px"
+                          borderRadius="50%"
+                        />
                       </div>
 
                       <div className="author_list_info">
-                        <div className="skeleton-box skeleton-seller-name"></div>
-                        <div className="skeleton-box skeleton-seller-price"></div>
+                        <Skeleton
+                          width="100px"
+                          height="16px"
+                          borderRadius="4px"
+                        />
+                        <Skeleton
+                          width="70px"
+                          height="14px"
+                          borderRadius="4px"
+                        />
                       </div>
                     </li>
                   ))
