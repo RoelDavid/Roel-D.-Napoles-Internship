@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import useCountdown from "../../timer/timer.jsx";
+import useCountdown from "../timer/timer.jsx";
 
 const ExploreItems = () => {
   const [exploreData, setExploreData] = useState([]);
