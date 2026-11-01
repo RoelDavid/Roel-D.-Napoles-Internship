@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import Skeleton from "../UI/Skeleton.jsx";
 
 const HotCollections = () => {
   const [hotCollections, setHotCollections] = useState([]);
@@ -52,11 +53,24 @@ const HotCollections = () => {
                 {[1, 2, 3, 4].map((item) => (
                   <div key={item}>
                     <div className="nft_coll">
-                      <div className="skeleton-box skeleton-image"></div>
-                      <div className="nft_coll_pp skeleton-box skeleton-avatar"></div>
+                      <Skeleton
+                        width="100%"
+                        height="200px"
+                        borderRadius="8px"
+                      />
+                      <div className="nft_coll_pp">
+                        <Skeleton
+                          width="50px"
+                          height="50px"
+                          borderRadius="50%"
+                        />
+                      </div>
                       <div className="nft_coll_info">
-                        <div className="skeleton-box skeleton-title"></div>
-                        <div className="skeleton-box skeleton-code"></div>
+                        <Skeleton
+                          width="140px"
+                          height="18px"
+                          borderRadius="4px"
+                        />
                       </div>
                     </div>
                   </div>
